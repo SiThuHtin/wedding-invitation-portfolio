@@ -1,0 +1,307 @@
+:root {
+  /* ── Base palette (gold + blush + sage) ── */
+  --color-cream-50: #fffaf6;
+  --color-cream-100: #faf9f6;
+  --color-blush-100: #f8edef;
+  --color-blush-200: #f4e4e8;
+  --color-blush-300: #e6d3cf;
+  --color-gold-200: #e8d4bc;
+  --color-gold-300: #d4b895;
+  --color-gold-400: #c9a87c;
+  --color-gold-500: #b89b78;
+  --color-gold-600: #9a7d5c;
+  --color-rose-100: #f6e1e6;
+  --color-rose-200: #efd4da;
+  --color-rose-300: #e8bfc9;
+  --color-rose-400: #c98797;
+  --color-rose-500: #c57c8c;
+  --color-rose-600: #9e5568;
+  --color-rose-700: #6c4d56;
+  --color-rose-800: #4a3a3c;
+  --color-sage-400: #9ba59a;
+  --color-neutral-900: #2d2b2a;
+  --color-neutral-700: #4a4543;
+  --color-neutral-500: #6f6862;
+  --color-neutral-400: #8b7178;
+  --color-white: #ffffff;
+
+  /* ── Semantic tokens ── */
+  --background: var(--color-cream-100);
+  --foreground: var(--color-neutral-900);
+  --primary: var(--color-gold-300);
+  --primary-hover: var(--color-gold-500);
+  --primary-deep: var(--color-gold-600);
+  --secondary: var(--color-blush-300);
+  --accent: var(--color-sage-400);
+  --accent-soft: color-mix(in srgb, var(--accent) 22%, transparent);
+  --accent-muted: color-mix(in srgb, var(--accent) 45%, var(--text-muted));
+
+  --text-body: var(--color-neutral-700);
+  --text-muted: var(--color-neutral-500);
+  --text-subtle: var(--color-neutral-400);
+  --text-on-primary: var(--color-white);
+  --text-label: var(--color-gold-600);
+  --text-label-rose: color-mix(in srgb, var(--color-rose-400) 55%, var(--color-gold-600));
+
+  --surface: var(--color-white);
+  --surface-cream: var(--color-cream-50);
+  --surface-blush: var(--color-blush-100);
+  --surface-blush-deep: var(--color-blush-200);
+  --surface-glass: rgba(255, 255, 255, 0.35);
+  --surface-input: rgba(255, 255, 255, 0.8);
+
+  --border-gold: rgba(212, 184, 149, 0.28);
+  --border-gold-soft: rgba(212, 184, 149, 0.22);
+  --border-gold-strong: rgba(212, 184, 149, 0.3);
+  --border-rose: rgba(184, 152, 154, 0.25);
+  --border-rose-soft: rgba(196, 154, 165, 0.5);
+  --border-input: #e0d8d0;
+
+  --shadow-color: rgba(45, 43, 42, 0.07);
+  --shadow-color-md: rgba(45, 43, 42, 0.11);
+  --shadow-rose: rgba(140, 102, 112, 0.22);
+  --shadow-rose-lg: rgba(156, 111, 123, 0.16);
+  --focus-ring: rgba(212, 184, 149, 0.2);
+  --focus-ring-accent: color-mix(in srgb, var(--accent) 28%, transparent);
+  --focus-ring-rose: rgba(177, 126, 138, 0.28);
+
+  /* ── Shared gradients ── */
+  --gradient-section: linear-gradient(
+    135deg,
+    var(--secondary) 0%,
+    color-mix(in srgb, var(--background) 94%, var(--accent)) 100%
+  );
+  --gradient-divider: linear-gradient(
+    to right,
+    transparent,
+    var(--accent-soft),
+    var(--primary),
+    var(--accent-soft),
+    transparent
+  );
+  --gradient-cover: linear-gradient(
+    180deg,
+    var(--surface-cream) 0%,
+    var(--surface-blush) 55%,
+    var(--surface-blush-deep) 100%
+  );
+  --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--color-gold-400) 100%);
+  --gradient-envelope: linear-gradient(135deg, #fbf0f2 0%, #f9ece8 48%, #f5e5e4 100%);
+  --gradient-seal: radial-gradient(
+    circle at 35% 35%,
+    var(--color-rose-500),
+    var(--color-rose-600) 60%,
+    #804354
+  );
+  --gradient-floral-bud: radial-gradient(
+    circle at 35% 35%,
+    #f5d3dc,
+    #d69ba8 60%,
+    #b77a89 100%
+  );
+  --gradient-hint-icon: linear-gradient(135deg, #d8a0ae, var(--color-rose-400));
+
+  /* ── Spacing scale ── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 1.75rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  /* Semantic spacing */
+  --space-section-y: clamp(4rem, 10vw, 6rem);
+  --space-container-x: clamp(var(--space-4), 5vw, var(--space-8));
+  --space-card-padding: var(--space-6);
+  --space-card-gap: var(--space-5);
+  --space-form-gap: var(--space-4);
+  --measure-prose: 38rem;
+  --measure-details: 42rem;
+  --measure-map: min(72rem, 100%);
+
+  /*
+   * Breakpoints (use consistently across stylesheets)
+   * Mobile:  max-width: 639px
+   * Tablet:  min-width: 640px and max-width: 1023px
+   * Desktop: min-width: 1024px
+   */
+
+  /* ── Radius scale ── */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-glass: 14px;
+  --radius-lg: 18px;
+  --radius-pill: 9999px;
+  --radius-full: 50%;
+
+  /* ── Typography: families ── */
+  /* Latin → Playfair/Montserrat first; Myanmar syllables → custom/Noto (unicode-range) */
+  --font-serif: var(--font-playfair), "Wedding Myanmar", var(--font-myanmar), serif;
+  --font-sans: var(--font-montserrat), "Wedding Myanmar", var(--font-myanmar), sans-serif;
+  --font-script: var(--font-script-main), cursive;
+
+  /* ── Typography: size scale ── */
+  --text-caption: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.2rem;
+  --text-2xl: clamp(1.6rem, 5vw, 3rem);
+  --text-display: clamp(3.2rem, 12vw, 8rem);
+  --text-display-cover: clamp(2.5rem, 7vw, 4.5rem);
+  --text-save-date: clamp(1.4rem, 3vw, 1.9rem);
+  --text-body-fluid: clamp(0.95rem, 1.8vw, 1.1rem);
+  --text-subtitle-fluid: clamp(0.9rem, 2vw, 1.2rem);
+  --text-hero-eyebrow: clamp(0.72rem, 2.5vw, 1.1rem);
+  --text-hero-date: clamp(1rem, 4vw, 1.5rem);
+  --text-row: 0.9375rem;
+  --text-timeline-title: 1.05rem;
+  --text-countdown-number: clamp(1.8rem, 6vw, 3rem);
+  --text-countdown-label: clamp(0.65rem, 1.5vw, 0.8rem);
+  --text-footer: clamp(0.8rem, 1.5vw, 0.9rem);
+  --text-button: 1rem;
+  --text-button-sm: 0.9rem;
+
+  /* ── Typography: line height ── */
+  --leading-none: 1;
+  --leading-tight: 1.2;
+  --leading-snug: 1.4;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.65;
+  --leading-loose: 1.8;
+  --leading-story: 1.9;
+
+  /* ── Typography: letter spacing ── */
+  --tracking-body: 0.3px;
+  --tracking-tight: 0.01em;
+  --tracking-wide: 0.08em;
+  --tracking-wider: 0.1em;
+  --tracking-caps: 0.12em;
+  --tracking-hero: clamp(2px, 0.8vw, 4px);
+  --tracking-button: 0.0625em;
+
+  /* ── Typography: weight ── */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Custom Burmese face in public/fonts/custommyanmar.ttf — Latin letters are unaffected */
+@font-face {
+  font-family: "Wedding Myanmar";
+  src: url("/fonts/custommyanmar.ttf") format("truetype");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+1000-109F,
+    U+AA60-AA7F,
+    U+A9E0-A9FF;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --measure-details: min(64rem, 100%);
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: var(--font-normal);
+  color: var(--foreground);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*
+ * Global utilities (see AGENTS.md → Styling)
+ * Prefer CSS module layout classes: sectionBlock, sectionInner, textCenter
+ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-container-x);
+}
+
+.section {
+  padding: var(--space-section-y) 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Shared primary button — pair with module modifiers (e.g. ctaBtn, btnSecondary) */
+.btn {
+  display: inline-block;
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+  padding: var(--space-3) var(--space-8);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: var(--text-button);
+  letter-spacing: var(--tracking-button);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
+}
+
+@media (max-width: 639px) {
+  .btn {
+    padding: var(--space-3) var(--space-7);
+    font-size: var(--text-button-sm);
+  }
+}
+
+/* Respect system “reduce motion” for CSS animations & transitions */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

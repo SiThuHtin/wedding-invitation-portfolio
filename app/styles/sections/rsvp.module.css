@@ -1,0 +1,231 @@
+.rsvpSectionHeader {
+  text-align: center;
+}
+
+.rsvpDeadline {
+  margin: 0 0 clamp(var(--space-5), 3vw, var(--space-6));
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-wide);
+  color: var(--primary-deep);
+}
+
+.rsvpWrapper {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.rsvpForm {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(var(--space-4), 3vw, var(--space-6));
+  text-align: left;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: clamp(var(--space-3), 2vw, var(--space-4));
+  border: 1.5px solid var(--border-input);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-body);
+  background: var(--surface);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+  /* Prevent iOS from zooming in on focus */
+  font-size: max(16px, var(--text-base));
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+.formGroup select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%239a7d5c' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-4) center;
+  padding-right: calc(var(--space-8) + var(--space-2));
+}
+
+.formGroup textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--surface);
+  box-shadow:
+    0 0 0 3px var(--focus-ring-accent),
+    0 0 0 1px color-mix(in srgb, var(--primary) 40%, transparent);
+}
+
+.formGroup input:focus-visible,
+.formGroup select:focus-visible,
+.formGroup textarea:focus-visible {
+  outline: none;
+}
+
+.formGroup input:disabled,
+.formGroup select:disabled,
+.formGroup textarea:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  background: color-mix(in srgb, var(--surface) 70%, var(--border-input));
+}
+
+.formGroup input[aria-invalid="true"],
+.formGroup select[aria-invalid="true"],
+.formGroup textarea[aria-invalid="true"] {
+  border-color: var(--color-rose-500, var(--color-rose-400));
+  background: color-mix(in srgb, var(--color-rose-400) 7%, var(--surface));
+}
+
+.formGroup input[aria-invalid="true"]:focus,
+.formGroup select[aria-invalid="true"]:focus,
+.formGroup textarea[aria-invalid="true"]:focus {
+  border-color: var(--color-rose-500, var(--color-rose-400));
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--color-rose-400) 28%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--color-rose-500, var(--color-rose-400)) 45%, transparent);
+}
+
+.rsvpSubmitBtn {
+  width: 100%;
+  margin-top: var(--space-1);
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-semibold);
+}
+
+.rsvpSubmitBtn:focus {
+  outline: none;
+}
+
+.rsvpSubmitBtn:focus-visible {
+  box-shadow:
+    0 0 0 3px var(--focus-ring),
+    0 0 0 1px var(--primary-deep);
+}
+
+.rsvpSubmitBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.rsvpSubmitBtn:disabled:hover {
+  background-color: var(--primary);
+}
+
+.rsvpStatus {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+}
+
+.rsvpStatusSuccess {
+  background: color-mix(in srgb, var(--accent) 14%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  color: var(--foreground);
+}
+
+.rsvpStatusError {
+  background: color-mix(in srgb, var(--color-rose-400) 12%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--color-rose-400) 35%, transparent);
+  color: var(--color-rose-700);
+}
+
+.rsvpSuccessPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(var(--space-3), 1.5vw, var(--space-4));
+  padding: clamp(var(--space-7), 4vw, var(--space-9)) clamp(var(--space-5), 4vw, var(--space-7));
+  text-align: center;
+  background: linear-gradient(
+    150deg,
+    color-mix(in srgb, var(--accent) 8%, var(--surface)) 0%,
+    color-mix(in srgb, var(--surface-cream) 92%, transparent) 100%
+  );
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  border-radius: var(--radius-md);
+}
+
+.rsvpSuccessIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(3rem, 8vw, 3.5rem);
+  height: clamp(3rem, 8vw, 3.5rem);
+  border-radius: var(--radius-full);
+  background: var(--gradient-hint-icon, var(--accent));
+  color: var(--text-on-primary);
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+.rsvpSuccessTitle {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 4vw, 1.85rem);
+  color: var(--color-rose-700);
+  letter-spacing: 0.02em;
+}
+
+.rsvpSuccessText {
+  margin: 0;
+  max-width: 32rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--text-body);
+}
+
+/* Caption labels (shared look with details card) */
+.formGroup label {
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--text-label);
+}
+
+@media (max-width: 639px) {
+  .rsvpWrapper {
+    max-width: 100%;
+    padding: var(--space-4);
+  }
+
+  .rsvpForm {
+    gap: var(--space-4);
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .rsvpWrapper {
+    max-width: 680px;
+  }
+}

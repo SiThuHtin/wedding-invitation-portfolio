@@ -1,0 +1,120 @@
+/* ─────────────────────────────────────────────
+   OUR STORY SECTION
+───────────────────────────────────────────── */
+.storySection {
+  width: 100%;
+  overflow-x: clip;
+  /* Follows countdown divider — less top padding than default sections */
+  padding-top: clamp(2rem, 4vw, 3rem);
+}
+
+/* Extra breathing room below title (subtitle removed).
+   Use a unique class name — do NOT nest .sectionTitle here; it would
+   override the shared sectionTitle export in pageStyles. */
+.storyTitle {
+  margin-bottom: clamp(2.25rem, 6vw, 3.75rem);
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(var(--space-8), 5vw, var(--space-12));
+  align-items: start;
+  width: 100%;
+  max-width: 1050px;
+  margin-inline: auto;
+}
+
+/* Text first on mobile, image second */
+.storyContent {
+  order: 1;
+  min-width: 0;
+  width: 100%;
+  max-width: min(var(--measure-prose), 100%);
+  margin-inline: auto;
+  padding-inline: clamp(0rem, 2vw, var(--space-4));
+  text-align: left;
+}
+
+.storyImageWrapper {
+  order: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.storyContent p {
+  font-size: var(--text-body-fluid);
+  line-height: var(--leading-story);
+  color: var(--text-body);
+  margin-bottom: var(--space-6);
+  letter-spacing: var(--tracking-body);
+  overflow-wrap: anywhere;
+}
+
+.storyContent p:last-child {
+  margin-bottom: 0;
+}
+
+.storyImage {
+  display: block;
+  width: 100%;
+  max-width: min(100%, 500px);
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 40px var(--shadow-color);
+  object-fit: cover;
+}
+
+/* Side-by-side from large tablets / small desktop up */
+@media (min-width: 1024px) {
+  .storyGrid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: var(--space-10);
+    align-items: center;
+    text-align: left;
+  }
+
+  .storyContent {
+    margin-inline: 0;
+    padding-inline: 0;
+    max-width: var(--measure-prose);
+  }
+
+  .storyImageWrapper {
+    justify-content: flex-end;
+  }
+
+  .storyImage {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 639px) {
+  .storyTitle {
+    margin-bottom: clamp(2rem, 8vw, 3rem);
+  }
+
+  .storyGrid {
+    gap: var(--space-8);
+    padding-inline: 0;
+  }
+
+  .storyContent {
+    max-width: 100%;
+    padding-inline: 0;
+  }
+
+  .storyContent p {
+    margin-bottom: var(--space-5);
+    font-size: var(--text-base);
+    line-height: var(--leading-loose);
+  }
+
+  .storyImage {
+    max-width: min(100%, 22rem);
+  }
+}

@@ -1,0 +1,455 @@
+.detailsSection {
+  background: var(--background);
+}
+
+/* Single column: card + map share one surface and width */
+.detailsContent {
+  width: 100%;
+  max-width: var(--measure-details);
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow:
+    0 14px 40px var(--shadow-color),
+    0 2px 8px rgba(45, 43, 42, 0.04);
+  text-align: left;
+}
+
+.detailsMapWrap {
+  padding: 0 var(--space-6) var(--space-7);
+  border-top: 1px solid var(--border-gold-soft);
+  background: var(--surface);
+}
+
+@media (min-width: 640px) {
+  .detailsMapWrap {
+    padding: 0 var(--space-7) var(--space-8);
+  }
+}
+
+/* ── Venue map ── */
+.mapSection {
+  width: 100%;
+  max-width: none;
+  margin: var(--space-6) 0 0;
+  padding-top: 0;
+  text-align: center;
+}
+
+.mapTitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: var(--font-normal);
+  color: var(--primary);
+  margin-bottom: var(--space-2);
+  line-height: var(--leading-tight);
+}
+
+.mapSubtitle {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--accent-muted);
+  margin-bottom: var(--space-5);
+}
+
+.mapFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: clamp(260px, 52vw, 480px);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  box-shadow: 0 14px 40px var(--shadow-color);
+  background: var(--surface);
+}
+
+@media (min-width: 1024px) {
+  .mapFrame {
+    min-height: 420px;
+    aspect-ratio: 21 / 9;
+  }
+}
+
+.mapFrame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  background: var(--surface);
+  color: var(--primary-deep);
+  border: 1.5px solid var(--border-gold-strong);
+  box-shadow: 0 4px 14px var(--shadow-color);
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    color 0.25s ease;
+}
+
+.btnSecondary:hover {
+  background: color-mix(in srgb, var(--primary) 12%, var(--surface));
+  border-color: color-mix(in srgb, var(--primary) 50%, var(--border-gold));
+  color: var(--primary-deep);
+}
+
+.btnSecondary:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px var(--focus-ring),
+    0 4px 14px var(--shadow-color);
+}
+
+.directionsIcon {
+  flex-shrink: 0;
+}
+
+.mapDirectionsBtn {
+  margin-top: var(--space-5);
+  width: 100%;
+  max-width: 20rem;
+}
+
+@media (max-width: 639px) {
+  .mapDirectionsBtn {
+    max-width: none;
+  }
+}
+
+/* ── Card shell ── */
+.detailCard {
+  width: 100%;
+  background: var(--surface);
+  border-radius: 0;
+  overflow: hidden;
+  border: none;
+  box-shadow: none;
+  transition: none;
+}
+
+@media (hover: hover) {
+  .detailsContent:hover {
+    box-shadow: 0 16px 44px var(--shadow-color-md);
+  }
+}
+
+/* ── Coloured top band with icon + title ── */
+.detailCardHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--gradient-primary);
+  padding: var(--space-5) var(--space-6);
+}
+
+.detailCardIcon {
+  font-size: 1.35rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.detailCard h3 {
+  font-size: var(--text-lg);
+  font-family: var(--font-sans);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--text-on-primary);
+  margin: 0;
+  line-height: var(--leading-tight);
+}
+
+@media (min-width: 640px) {
+  .detailCardHeader {
+    padding: var(--space-5) var(--space-7);
+  }
+
+  .detailCard h3 {
+    font-size: var(--text-xl);
+  }
+
+  .detailCardIcon {
+    font-size: 1.5rem;
+  }
+}
+
+/* ── Info rows inside the card body ── */
+.detailCardBody {
+  padding: var(--space-6) var(--space-6) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+@media (min-width: 640px) {
+  .detailCardBody {
+    padding: var(--space-6) var(--space-7) var(--space-7);
+  }
+}
+
+/* Each info row: label column + value column */
+.detailRow {
+  display: grid;
+  grid-template-columns: 5.25rem minmax(0, 1fr);
+  column-gap: var(--space-5);
+  row-gap: var(--space-2);
+  align-items: start;
+  font-size: var(--text-row);
+  line-height: var(--leading-relaxed);
+}
+
+@media (max-width: 639px) {
+  .detailRow {
+    grid-template-columns: 1fr;
+    row-gap: var(--space-1);
+  }
+}
+
+@media (min-width: 640px) {
+  .detailRow {
+    grid-template-columns: 5.75rem minmax(0, 1fr);
+    column-gap: var(--space-6);
+  }
+}
+
+.detailLabel,
+.timelineHeading,
+.formGroup label {
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+.detailLabel,
+.timelineHeading,
+.formGroup label {
+  color: var(--text-label);
+}
+
+.detailLabel {
+  flex-shrink: 0;
+  padding-top: 0.2rem;
+}
+
+.detailValue {
+  font-family: var(--font-serif);
+  font-size: var(--text-md);
+  font-weight: var(--font-normal);
+  line-height: var(--leading-relaxed);
+  color: var(--foreground);
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.detailValueNote {
+  display: block;
+  margin-top: 0.45rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--font-normal);
+  line-height: var(--leading-relaxed);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-muted);
+}
+
+.detailLocation {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding-top: var(--space-6);
+  margin-top: var(--space-1);
+  border-top: 1px solid var(--border-gold-soft);
+}
+
+.locationLine {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  text-align: left;
+}
+
+.locationPin {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  color: var(--primary);
+}
+
+/* Thin rule between rows */
+.detailCardDivider {
+  display: none;
+}
+
+/* ── Ceremony schedule timeline ── */
+.timelineBlock {
+  text-align: left;
+  padding: var(--space-6) 0 var(--space-6);
+  margin: var(--space-5) 0 0;
+  border-top: 1px solid var(--border-gold-soft);
+  border-bottom: 1px solid var(--border-gold-soft);
+}
+
+.timelineHeading {
+  display: block;
+  margin-bottom: var(--space-4);
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 0.15rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.timelineItem {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1rem minmax(0, 1fr);
+  column-gap: var(--space-4);
+  padding-bottom: var(--space-5);
+}
+
+.timelineItem:last-child {
+  padding-bottom: 0;
+}
+
+.timelineItem:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 0.4rem;
+  top: 1rem;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--primary) 0%,
+    var(--accent) 55%,
+    color-mix(in srgb, var(--accent) 25%, transparent) 100%
+  );
+  border-radius: 1px;
+}
+
+.timelineMarker {
+  position: relative;
+  z-index: 1;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-top: 0.35rem;
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 18%, transparent);
+}
+
+.timelineItem:last-child .timelineMarker {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.timelineContent {
+  padding: var(--space-1) 0 var(--space-1) var(--space-1);
+  background: transparent;
+  border: none;
+  border-left: 2px solid var(--border-gold-soft);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.timelineTime {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  line-height: var(--leading-snug);
+  color: var(--text-label);
+  margin-bottom: var(--space-2);
+}
+
+.timelineTitle {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--text-timeline-title);
+  font-weight: var(--font-normal);
+  line-height: var(--leading-relaxed);
+  color: var(--foreground);
+}
+
+@media (min-width: 640px) {
+  .timelineBlock {
+    padding: var(--space-6) 0 var(--space-6);
+    margin-top: var(--space-5);
+  }
+
+  .timelineHeading {
+    margin-bottom: var(--space-5);
+  }
+
+  .timelineItem {
+    grid-template-columns: 1.15rem minmax(0, 1fr);
+    column-gap: var(--space-5);
+    padding-bottom: var(--space-5);
+  }
+
+  .timelineContent {
+    padding: var(--space-4) var(--space-5);
+  }
+
+  .timelineTime {
+    margin-bottom: 0.45rem;
+  }
+
+  .timelineTitle {
+    font-size: var(--text-xl);
+    line-height: var(--leading-normal);
+  }
+}
+
+@media (max-width: 639px) {
+  .detailsContent {
+    max-width: 100%;
+  }
+
+  .detailsMapWrap {
+    padding: 0 var(--space-5) var(--space-6);
+  }
+
+  .mapSection {
+    margin-top: var(--space-5);
+  }
+
+  .mapFrame {
+    min-height: clamp(240px, 58vw, 320px);
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-md);
+  }
+
+  .detailCardBody {
+    padding: var(--space-5) var(--space-5) var(--space-6);
+  }
+
+  .detailValue {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+  }
+
+  .timelineTitle {
+    font-size: var(--text-base);
+    line-height: var(--leading-snug);
+  }
+}

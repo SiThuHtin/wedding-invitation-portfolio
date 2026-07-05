@@ -1,0 +1,113 @@
+.main {
+  width: 100%;
+}
+
+/* Layout shells — use instead of global .section / .container / .text-center */
+.sectionBlock {
+  padding: var(--space-section-y) 0;
+}
+
+.sectionInner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-container-x);
+}
+
+.textCenter {
+  text-align: center;
+}
+
+/* ─────────────────────────────────────────────
+   SECTION COMMON
+───────────────────────────────────────────── */
+.sectionTitle {
+  font-size: var(--text-2xl);
+  line-height: var(--leading-tight);
+  margin-bottom: clamp(var(--space-4), 3vw, var(--space-8));
+  color: var(--primary);
+  font-family: var(--font-serif);
+  font-weight: var(--font-normal);
+}
+
+.sectionSubtitle {
+  font-size: var(--text-subtitle-fluid);
+  line-height: var(--leading-relaxed);
+  color: var(--accent-muted);
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Burmese script has stacked diacritics + descenders ( ့ ု ူ ဲ ၏ ) that get
+   clipped by tight line-heights and by parents using overflow: hidden during
+   framer-motion fade-up. Give Burmese titles/subtitles proper leading and a
+   tiny vertical breathing room so glyphs render and animate cleanly. */
+:global(html[lang="my"]) .sectionTitle {
+  line-height: 1.7;
+  padding-block: 0.12em 0.3em;
+}
+
+:global(html[lang="my"]) .sectionSubtitle {
+  line-height: 1.95;
+  padding-bottom: 0.2em;
+}
+
+.divider {
+  width: 60%;
+  height: 2px;
+  background: var(--gradient-divider);
+  margin: clamp(1.5rem, 4vw, 3rem) auto clamp(0.75rem, 2vw, 1.25rem);
+  border: none;
+  opacity: 0.85;
+}
+
+/* ─────────────────────────────────────────────
+   SECTION BACKGROUNDS (alternating rhythm)
+───────────────────────────────────────────── */
+.sectionSurface {
+  background: var(--background);
+}
+
+.sectionTinted {
+  background: var(--gradient-section);
+  position: relative;
+}
+
+.glassCard {
+  background: var(--surface-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in srgb, var(--surface) 55%, transparent);
+  padding: clamp(var(--space-3), 3vw, var(--space-8));
+  border-radius: var(--radius-glass);
+  box-shadow: 0 8px 32px var(--shadow-color);
+  position: relative;
+}
+
+@media (max-width: 639px) {
+  .sectionTitle {
+    margin-bottom: 0.85rem;
+  }
+
+  .sectionSubtitle {
+    margin-bottom: 1.4rem;
+    max-width: 28rem;
+  }
+
+  .divider {
+    width: min(78%, 320px);
+  }
+
+  .main {
+    scroll-padding-bottom: 6rem;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .sectionSubtitle {
+    max-width: 42rem;
+  }
+}
