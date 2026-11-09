@@ -43,7 +43,7 @@ export default function Home() {
         <section className={styles.hero}>
           <div className={styles.heroOverlay}></div>
           <Image
-            src="/registry-book-hero.jpg"
+            src="/registry-book-hero.jpg?v=2"
             alt={t.hero.bgAlt}
             fill
             priority
@@ -164,7 +164,7 @@ export default function Home() {
               </motion.div>
               <motion.div variants={scaleUp} className={styles.storyImageWrapper}>
                 <Image
-                  src="/ourStory.jpg"
+                  src="/ourStory.jpg?v=2"
                   alt={t.story.imageAlt}
                   width={500}
                   height={600}
